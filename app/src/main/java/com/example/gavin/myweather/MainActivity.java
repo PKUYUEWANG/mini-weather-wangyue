@@ -20,8 +20,8 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import cn.edu.pku.zhangqixun.bean.TodayWeather;
-import cn.edu.pku.zhangqixun.util.NetUtil;
+import cn.edu.pku.gavin.bean.TodayWeather;
+import cn.edu.pku.gavin.util.NetUtil;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {

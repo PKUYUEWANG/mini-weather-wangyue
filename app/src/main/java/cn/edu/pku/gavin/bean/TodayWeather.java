@@ -1,13 +1,4 @@
-package cn.edu.pku.zhangqixun.bean;
-
-import android.util.Log;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.io.IOException;
-import java.io.StringReader;
+package cn.edu.pku.gavin.bean;
 
 /**
  * Created by GAVIN on 2017/10/17.
