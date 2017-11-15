@@ -2,10 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/selectcity_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout">
+
+    </ListView>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="45.0dip"
-        android:background="#ffcd2626" >
+        android:background="#ffcd2626"
+        android:id="@+id/relativeLayout">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title">
+
+    </RelativeLayout>
+
         <TextView
             android:id="@+id/title_name"
             android:layout_width="fill_parent"
