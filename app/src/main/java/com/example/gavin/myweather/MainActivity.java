@@ -26,6 +26,7 @@ import cn.edu.pku.gavin.util.NetUtil;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private static final int UPDATE_TODAY_WEATHER =1;
+    private String updateCityCode;
     private ImageView mUpdateBtn;
     private ImageView mCitySelect;
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv,pmQualityTv,
@@ -41,7 +42,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
             }
         }
-    };
+    };/*为更新按钮添加事件*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else {
             Log.d("myWeather", "网络挂了");
             Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
-        }
+        } /*网络状态*/
         mCitySelect = (ImageView)  findViewById(R.id.title_city_manager);
         mCitySelect.setOnClickListener(this);
         initView();
+
+        updateCityCode = getIntent().getStringExtra("citycode");
+        if(updateCityCode!="-1"&& updateCityCode != null)
+        {
+            queryWeatherCode(updateCityCode);
+        }else {
+            SharedPreferences sharedPreferences = getSharedPreferences(
+                    "CityCodePreference", Activity.MODE_PRIVATE);
+            String defaultCityCode = sharedPreferences.getString("citycode", "");
+            if (defaultCityCode != null) {
+                Log.d("defaultCityCode", defaultCityCode);
+                queryWeatherCode(defaultCityCode);
+            }
+        }
     }
 
     @Override
@@ -117,9 +132,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         climateTv.setText("N/A");
         windTv.setText("N/A");
     }
-    /**
-     * @param cityCode
-     */
+    
     private void queryWeatherCode(String cityCode) {
         final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey=" + cityCode;
         Log.d("myWeather", address);
