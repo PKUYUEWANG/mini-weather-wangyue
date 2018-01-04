@@ -43,7 +43,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/search_city"
-                android:hint="   搜索全国城市(中文)"
+                android:hint="   搜索城市代码"
                 android:paddingLeft="35.0dp"
                 android:singleLine="true"
                 android:layout_alignParentRight="true"
